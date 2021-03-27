@@ -34,13 +34,13 @@ body {
 }
 
 #left {
-    width: 200px;
+    width: 14%;
     height: 600px;
     float: left;
 }
 
 #nav {
-    width: 600px;
+    width: 43%;
     float: left;
     padding: 10px;
 }
@@ -60,7 +60,7 @@ body {
 }
 
 #section {
-    width: 600px;
+    width: 43%;
     float: left;
     padding: 10px;
 }
