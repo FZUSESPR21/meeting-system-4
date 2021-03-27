@@ -17,8 +17,10 @@ public class ChairmanServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ChairmanDAO chairmanDAO=new ChairmanDAOImpl();
         int num=chairmanDAO.getTotal();
-        PrintWriter out= response.getWriter();
-        out.println(num);
+        request.setAttribute("num", num);
+        RequestDispatcher rd;
+        rd=request.getRequestDispatcher("/index.jsp");
+        rd.forward(request, response);
     }
 
     @Override
