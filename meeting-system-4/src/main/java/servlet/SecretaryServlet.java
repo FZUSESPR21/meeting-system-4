@@ -29,7 +29,8 @@ public class SecretaryServlet extends HttpServlet {
 
     public void queryUserInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("secretaryId");
-        String thisforum = secretaryDAO.getSubForum(id);
+        //String thisforum = secretaryDAO.getSubForum(id);
+        String thisforum = "分论坛1";
         ArrayList<User> users = new ArrayList<>();
         ArrayList<String> userIdList = (ArrayList<String>) userDAO.userIdList(thisforum);
 
