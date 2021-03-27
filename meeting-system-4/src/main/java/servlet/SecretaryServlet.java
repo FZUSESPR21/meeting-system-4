@@ -13,7 +13,6 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 @WebServlet(name = "SecretaryServlet", value = "/SecretaryServlet")
 public class SecretaryServlet extends HttpServlet {
     private UserDAO userDAO = new UserDAOImpl();
