@@ -1,7 +1,6 @@
 package dao;
 
 import pojo.Chairman;
-import pojo.User;
 import util.DBUtil;
 
 import java.sql.Connection;
@@ -31,7 +30,7 @@ public class ChairmanDAOImpl implements ChairmanDAO{
     }
 
     @Override
-    public User get(int id) {
+    public Chairman get(int id) {
         return null;
     }
 
@@ -52,13 +51,27 @@ public class ChairmanDAOImpl implements ChairmanDAO{
     }
 
     @Override
-    public User get(String name) {
+    public Chairman get(String name) {
         return null;
     }
 
     @Override
-    public User get(String name, String password) {
+    public Chairman get(String name, String password) {
         return null;
     }
 
+    @Override
+    public String getPassword(String id){
+        String password = new String();
+        try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
+            String sql = "select * from chairman where id = '"+id+"'";
+            ResultSet rs = s.executeQuery(sql);
+            while (rs.next()) {
+                password =rs.getString("password");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return password;
+    }
 }
