@@ -30,6 +30,7 @@ public class SecretaryServlet extends HttpServlet {
     public void queryUserInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("secretaryId");
         String thisforum = secretaryDAO.getSubForum(id);
+
         ArrayList<User> users = new ArrayList<>();
         ArrayList<String> userIdList = (ArrayList<String>) userDAO.userIdList(thisforum);
 
