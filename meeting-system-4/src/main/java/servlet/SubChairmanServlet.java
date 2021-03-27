@@ -2,6 +2,7 @@ package servlet;
 
 import dao.*;
 import pojo.Notification;
+import pojo.SubChairman;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,9 +11,10 @@ import java.io.IOException;
 
 @WebServlet(name = "SubChairmanServlet", value = "/SubChairmanServlet")
 public class SubChairmanServlet extends HttpServlet {
-    private UserDAO userDAO = new UserDAOImpl();
+    private SubChairmanDAO subChairmanDAO = new SubChairmanDAOImpl();
     private ForumDAO forumDAO = new ForumDAOImpl();
     private NotiDAO notiDAO = new NotiDAOImpl();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +27,8 @@ public class SubChairmanServlet extends HttpServlet {
     }
 
     public void countNum(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String thisforum = "分论坛2";
+        String id = request.getParameter("subchairmanId");
+        String thisforum = subChairmanDAO.getSubForum(id);
         int num = forumDAO.getSubForumFollowers(thisforum);
         request.setAttribute("numOfFollowers", num);
         request.getRequestDispatcher("/subchairmanPage/peopleNumPage.jsp").forward(request, response);
@@ -33,7 +36,8 @@ public class SubChairmanServlet extends HttpServlet {
 
     public void releaseNotices(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String note = request.getParameter("notification");
-        String thisforum = "分论坛2";
+        String id = request.getParameter("subchairmanId");
+        String thisforum = subChairmanDAO.getSubForum(id);
         Notification notification = new Notification();
         notification.setSubForum(thisforum);
         notification.setMessage(note);

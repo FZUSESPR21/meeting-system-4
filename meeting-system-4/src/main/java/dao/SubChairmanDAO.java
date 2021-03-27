@@ -4,7 +4,7 @@ import pojo.SubChairman;
 
 public interface SubChairmanDAO {
     int getTotal();
-
+    String getSubForum(String id);
     void delete(int id) ;
     SubChairman get(int id);
     int getNum();
