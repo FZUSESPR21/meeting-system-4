@@ -1,4 +1,4 @@
-package com.example.CommonUser;
+package servlet;
 
 import dao.NotiDAO;
 import dao.NotiDAOImpl;
