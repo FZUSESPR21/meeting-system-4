@@ -46,7 +46,6 @@ public class SecretaryServlet extends HttpServlet {
     }
 
     public void releaseNotices(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("ghgjlkjhg");
         String note = request.getParameter("notification");
         String thisforum = "分论坛1";
         Notification notification = new Notification();

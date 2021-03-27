@@ -109,4 +109,18 @@ public class ForumDAOImpl implements ForumDAO{
     public User get(String name, String password) {
         return null;
     }
+
+    public int getSubForumFollowers(String subforum) {
+        int num = 0;
+        try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
+            String sql = "select count(*) from followedforum where subforum='" + subforum + "'";
+            ResultSet rs = s.executeQuery(sql);
+            while (rs.next()) {
+                num = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return num;
+    }
 }
