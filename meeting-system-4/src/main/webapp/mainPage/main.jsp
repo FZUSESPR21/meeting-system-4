@@ -22,10 +22,10 @@
     </div>
     <div id="menu">
 
-        <button id="list">会议议程</button><br>
+        <button id="list"><a href="AllForumServlet">会议议程</a></button><br>
     </div>
     <div id="menu">
-        <button id="list">分论坛信息</button><br>
+        <button id="list"><a href="ListServlet">分论坛信息</a></button><br>
     </div>
 </div>
 <!--右侧主页-->
