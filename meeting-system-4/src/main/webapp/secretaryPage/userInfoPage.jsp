@@ -1,6 +1,4 @@
-<%@ page import="pojo.User" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="pojo.Forum" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Lin Minghao
   Date: 2021/3/27
