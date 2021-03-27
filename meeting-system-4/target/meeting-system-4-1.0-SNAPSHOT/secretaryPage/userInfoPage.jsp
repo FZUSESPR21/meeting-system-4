@@ -20,18 +20,16 @@
     <input type="submit" value="查询本论坛所有人员信息">
 </form>
 
-<div id="user_info">
-    <%
-        ArrayList<User> users = (ArrayList<User>) request.getAttribute("users");
-        for (User user:users) { %>
-    <text id="user_name"><%=user.getName()%></text>
-    <text id="user_forums">
-        <% for (String forum:user.getForum()) { %>
-        <%=forum + " "%>
-        <% } %>
-    </text>
-    <%  }
-    %>
+<div>
+    <c:forEach items="${requestScope.users}" var="u" varStatus="vs">
+        <tr>
+            <td class="username">${u.name}</td>
+        </tr>
+        <text class="username">${u.name}</text>
+        <c:forEach items="${u.forum}" var="f">
+            <text class="username">${f}</text>
+        </c:forEach>
+    </c:forEach>
 </div>
 
 </body>

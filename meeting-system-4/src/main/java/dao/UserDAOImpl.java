@@ -5,6 +5,7 @@ import pojo.User;
 import util.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO{
@@ -72,8 +73,26 @@ public class UserDAOImpl implements UserDAO{
         return user;
     }
 
-
-
+    public List<String> userIdList(String forum) {
+        List<String> userIdList = new ArrayList<>();
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try{
+            conn = DBUtil.getConnection();
+            stmt = conn.createStatement();
+            String sql = "select * from followedforum where subforum='" + forum + "'";
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                userIdList.add(rs.getString("userid"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, stmt, conn);
+        }
+        return userIdList;
+    }
 
     @Override
     public List<User> list() {

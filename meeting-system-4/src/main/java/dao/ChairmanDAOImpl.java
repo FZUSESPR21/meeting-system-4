@@ -1,6 +1,7 @@
 package dao;
 
 import pojo.Chairman;
+import pojo.User;
 import util.DBUtil;
 
 import java.sql.Connection;
@@ -30,7 +31,7 @@ public class ChairmanDAOImpl implements ChairmanDAO{
     }
 
     @Override
-    public Chairman get(int id) {
+    public User get(int id) {
         return null;
     }
 
@@ -51,12 +52,13 @@ public class ChairmanDAOImpl implements ChairmanDAO{
     }
 
     @Override
-    public Chairman get(String name) {
+    public User get(String name) {
         return null;
     }
 
     @Override
-    public Chairman get(String name, String password) {
+    public User get(String name, String password) {
         return null;
     }
+
 }
