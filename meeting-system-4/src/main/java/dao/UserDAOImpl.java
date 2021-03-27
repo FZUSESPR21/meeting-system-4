@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO{
@@ -52,7 +53,7 @@ public class UserDAOImpl implements UserDAO{
     public User get(String id) {
         User user = new User();
         try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
-            String sql = "select * from user where id = \'"+id+"\'";
+            String sql = "select * from user where id = '"+id+"'";
             ResultSet rs = s.executeQuery(sql);
             while (rs.next()) {
                 String name=rs.getString("name");
@@ -66,11 +67,29 @@ public class UserDAOImpl implements UserDAO{
         return user;
     }
 
-
-
-
     @Override
     public List<User> list() {
         return null;
+    }
+
+    public List<String> userIdList(String forum) {
+        List<String> userIdList = new ArrayList<>();
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try{
+            conn = DBUtil.getConnection();
+            stmt = conn.createStatement();
+            String sql = "select * from followedforum where subforum='" + forum + "'";
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                userIdList.add(rs.getString("userid"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, stmt, conn);
+        }
+        return userIdList;
     }
 }

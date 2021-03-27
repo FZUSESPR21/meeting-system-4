@@ -41,9 +41,9 @@ public class Forum {
         this.topic = topic;
     }
 
-    String name;
-    String secretary;
-    String subChairman;
-    String time;
-    String topic;
+    private String name;
+    private String secretary;
+    private String subChairman;
+    private String time;
+    private String topic;
 }

@@ -13,4 +13,5 @@ public interface UserDAO {
     User get(String id);
     String getPassword(String id);
     List<User> list();
+    List<String> userIdList(String forum);//返回该会议的关注者的id列表
 }
