@@ -41,7 +41,7 @@ public class ForumDAOImpl implements ForumDAO{
     public List<Forum> list(String Userid) {
         List<Forum> l  = new ArrayList<Forum>();
         try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
-            String sql = "select a.* from subforuminfo as a,followedforum as b where a.id=b.id AND a.id='"+Userid+"'";
+            String sql = "select a.* from subforuminfo as a,followedforum as b where a.name=b.subforum AND b.userid='"+Userid+"'";
             ResultSet rs = s.executeQuery(sql);
             while (rs.next()) {
                 String name=rs.getString("name");
