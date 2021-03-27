@@ -19,19 +19,27 @@ public class UserDAOImpl implements UserDAO{
     public void add(User user, String password) {
         String sql = "insert into user values(? ,? ,?)";
         try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setString(0, user.getId());
-            ps.setString(1, password);
-            ps.setString(2, user.getName());
+            ps.setString(1, user.getId());
+            ps.setString(2, password);
+            ps.setString(3, user.getName());
             ps.execute();
         } catch (SQLException e) {
-
             e.printStackTrace();
         }
     }
 
     @Override
-    public void update(User user) {
-
+    public void update(List<String> forums,String id) {
+        for (int i = 0;i<forums.size();i++){
+            String sql = "insert into followedforum values(? ,?)";
+            try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
+                ps.setString(1, id);
+                ps.setString(2, forums.get(i));
+                ps.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

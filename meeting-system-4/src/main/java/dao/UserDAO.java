@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserDAO {
     int getTotal();
     void add(User user, String password);
-    void update(User user);
+    void update(List<String> forums,String id);
     void delete(String id) ;
     User get(String id);
     String getPassword(String id);
