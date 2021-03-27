@@ -1,6 +1,7 @@
 package dao;
 
 import pojo.Forum;
+import pojo.Notification;
 import pojo.User;
 import util.DBUtil;
 
@@ -11,19 +12,20 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForumDAOImpl implements ForumDAO{
+public class NotiDAOImpl implements NotiDAO{
+
     @Override
     public int getTotal() {
         return 0;
     }
 
     @Override
-    public void add(Forum forum) {
+    public void add(Notification notification) {
 
     }
 
     @Override
-    public void update(Forum forum) {
+    public void update(Notification notification) {
 
     }
 
@@ -38,24 +40,18 @@ public class ForumDAOImpl implements ForumDAO{
     }
 
     @Override
-    public List<Forum> list(String Userid) {
-        List<Forum> l  = new ArrayList<Forum>();
+    public List<Notification> list(String Userid) {
+        List<Notification> l  = new ArrayList<Notification>();
         try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
-            String sql = "select a.* from subforuminfo as a,followedforum as b where a.name=b.subforum AND b.userid='"+Userid+"'";
+            String sql = "select a.* from forumnotice as a,followedforum as b where a.subforum=b.subforum AND b.userid='"+Userid+"'";
             ResultSet rs = s.executeQuery(sql);
             while (rs.next()) {
-                String name=rs.getString("name");
-                String subchairman=rs.getString("subchairman");
-                String secretary=rs.getString("secretary");
-                String topic =rs.getString("topic");
-                String time= rs.getString("time");
-                Forum forum=new Forum();
-                forum.setName(name);
-                forum.setSecretary(secretary);
-                forum.setSubChairman(subchairman);
-                forum.setTopic(topic);
-                forum.setTime(time);
-                l.add(forum);
+                String subforum=rs.getString("subforum");
+                String message=rs.getString("message");
+                Notification notification=new Notification();
+                notification.setMessage(message);
+                notification.setSubForum(subforum);
+                l.add(notification);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -64,7 +60,7 @@ public class ForumDAOImpl implements ForumDAO{
     }
 
     @Override
-    public List<Forum> list(int start, int count) {
+    public List<Notification> list(int start, int count) {
         return null;
     }
 
