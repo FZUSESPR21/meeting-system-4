@@ -37,6 +37,33 @@ public class ForumDAOImpl implements ForumDAO{
         return null;
     }
 
+
+    @Override
+    public List<Forum> list() {
+        List<Forum> l  = new ArrayList<Forum>();
+        try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
+            String sql = "select * from subforuminfo";
+            ResultSet rs = s.executeQuery(sql);
+            while (rs.next()) {
+                String name=rs.getString("name");
+                String subchairman=rs.getString("subchairman");
+                String secretary=rs.getString("secretary");
+                String topic =rs.getString("topic");
+                String time= rs.getString("time");
+                Forum forum=new Forum();
+                forum.setName(name);
+                forum.setSecretary(secretary);
+                forum.setSubChairman(subchairman);
+                forum.setTopic(topic);
+                forum.setTime(time);
+                l.add(forum);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return l;
+    }
+
     @Override
     public List<Forum> list(String Userid) {
         List<Forum> l  = new ArrayList<Forum>();

@@ -7,14 +7,14 @@ h1 {
 }
 
 #h1 {
-    width: 250px;
+    width: 100%;
     height: 60px;
     margin: 0 auto;
     background-color: #272a38;
 }
 
 #h2 {
-    width: 1000px;
+    width: 100%;
     height: 60px;
 }
 
@@ -64,21 +64,21 @@ h1 {
 }
 
 #section {
-    width: 85%;
+    width: 80%;
     float: left;
     padding: 10px;
 }
 
 input[type=text],
 select {
-    width: 800px;
+    width: 80%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 12px;
     box-sizing: border-box;
-    background-color: #e0e0e0;
+    background-color: transparent;
     margin-left: 100px;
 }
 
@@ -93,13 +93,14 @@ input[type=submit] {
     border-radius: 8px;
 }
 
-#conferencelist {
+#messagelist {
     color: black;
     background: rgba( 255, 255, 255, 0.5);
     margin-top: 50px;
     text-align: center;
     margin: 0 auto;
-    width: 80%
+    width: 80%;
+    background-color: transparent;
 }
 
 #table {
@@ -120,43 +121,33 @@ input[type=submit] {
     margin-left: 100px;
 }
 
-#conferencelist table {
-    margin-top: 50px;
-    width: 100%;
-    line-height: 24px;
-    border-top: 2px solid #333333;
-    border-bottom: 2px solid #2c2c2c;
+#table {
+    width: 76%;
+    height: 60px;
+    border-style: dotted dashed solid double;
+    border-radius: 12px;
+    background-color: transparent;
+    margin-top: 30px;
+    background: rgba( 255, 255, 255, 0.5);
 }
 
-#conferencelist table th {
-    background: #aaaaaa;
-    color: black;
+div dl {
+    color: rgb(16, 46, 16);
+    margin: px;
+    border-style: dotted dashed solid double;
+    border-radius: 12px;
+    background: rgba( 255, 255, 255, );
 }
 
-#conferencelist table td {
-    padding: 10px 0;
-    border-top: 1px solid #464646;
+div dd {
+    background-color: #ffffff;
+    color: rgb(16, 46, 16);
+    margin-left: 20px;
+    width: fit-content;
+    border-radius: 12px;
 }
 
-#conferencelist table td.title {
-    border: 1px solid #dfdfe0;
-    margin: 0 10px;
-    vertical-align: middle;
-}
-
-#conferencelist table td.conference {
-    text-align: center;
-    width: 100px;
-    border-left: 1px solid #e1e1e1;
-}
-
-#conferencelist table td.keyword {
-    color: black;
-    font-weight: bold;
-}
-
-#conferencerlist table td.time {
-    width: 100px;
-    text-align: center;
-    border-left: 1px solid #e1e1e1;
+div dd.message_title {
+    color: rgb(2, 6, 231);
+    font-size: 20px;
 }
