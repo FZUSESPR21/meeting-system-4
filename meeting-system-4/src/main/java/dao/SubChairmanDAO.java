@@ -13,4 +13,5 @@ public interface SubChairmanDAO {
     SubChairman get(String name) ;
     SubChairman get(String name, String password) ;
     String getPassword(String id);
+    String getSubForum(String id);
 }

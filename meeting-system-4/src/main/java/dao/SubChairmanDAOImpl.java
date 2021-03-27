@@ -75,4 +75,18 @@ public class SubChairmanDAOImpl implements SubChairmanDAO{
         }
         return password;
     }
+
+    public String getSubForum(String id) {
+        String subForum = "";
+        try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
+            String sql = "select subforum from subchairman where id='" + id + "'";
+            ResultSet rs = s.executeQuery(sql);
+            while (rs.next()) {
+                subForum = rs.getString("subforum");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return subForum;
+    }
 }

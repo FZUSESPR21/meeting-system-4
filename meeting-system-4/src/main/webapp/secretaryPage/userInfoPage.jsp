@@ -217,7 +217,7 @@
         <button id="list1">参会者信息</button><br>
     </div>
     <div id="menu2">
-        <button id="list2" onclick="jump1()">发布通知</button><br>
+        <a id="list2" href="secretaryPage/releaseNotesPage.jsp">发布通知</a><br>
     </div>
     <script>
         function jump1(){
