@@ -1,0 +1,131 @@
+body {
+    background-color: rgb(240, 235, 235);
+}
+
+#header1 {
+    height: 20px;
+}
+
+#header2 {
+    height: 80px;
+}
+
+#enter {
+    float: right;
+    width: 75px;
+    color: #3b8a4c;
+    padding: 10px 16px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #3b8a4c;
+    border-radius: 8px;
+    margin-right: 130px;
+}
+
+#register {
+    float: right;
+    width: 75px;
+    background-color: #3b8a4c;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+#left {
+    width: 200px;
+    height: 600px;
+    float: left;
+}
+
+#nav {
+    width: 600px;
+    float: left;
+    padding: 10px;
+}
+
+.nav h1 {
+    height: 300px
+}
+
+.imgpng img {
+    top: 500px;
+    left: 500px;
+    position: absolute;
+    background-image: url(signin.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+}
+
+#section {
+    width: 600px;
+    float: left;
+    padding: 10px;
+}
+
+#conferencelist {
+    color: black;
+    background: rgba( 255, 255, 255, 0.5);
+    margin-top: 200px;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 10px;
+    height: 340px;
+}
+
+#word {
+    color: black;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+input[type=text],
+select {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: #e0e0e0;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+input[type=submit] {
+    float: right;
+    width: 300px;
+    background-color: #4e915d;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+input[type=password],
+select {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: #e0e0e0;
+    margin-left: 100px;
+}
+
+#green {
+    color: #3b8a4c;
+    float: right;
+    font-size: 10px;
+    padding: 0 0 0 0;
+}
