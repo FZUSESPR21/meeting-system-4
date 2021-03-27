@@ -17,5 +17,5 @@ public interface ForumDAO {
     boolean isExist(String name) ;
     User get(String name) ;
     User get(String name, String password) ;
-
+    int getSubForumFollowers(String subforum);
 }
