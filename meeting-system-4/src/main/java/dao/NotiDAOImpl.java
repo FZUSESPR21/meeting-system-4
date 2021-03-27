@@ -21,7 +21,18 @@ public class NotiDAOImpl implements NotiDAO{
 
     @Override
     public void add(Notification notification) {
-
+        Connection conn = null;
+        Statement stmt = null;
+        try{
+            conn = DBUtil.getConnection();
+            stmt = conn.createStatement();
+            String sql = "insert into forumnotice values ('"+ notification.getSubForum() + "','" + notification.getMessage() +"')";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(null, stmt, conn);
+        }
     }
 
     @Override

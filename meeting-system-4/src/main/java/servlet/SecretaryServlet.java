@@ -1,10 +1,8 @@
 package servlet;
 
-import dao.ForumDAO;
-import dao.ForumDAOImpl;
-import dao.UserDAO;
-import dao.UserDAOImpl;
+import dao.*;
 import pojo.Forum;
+import pojo.Notification;
 import pojo.User;
 
 import javax.servlet.*;
@@ -17,6 +15,7 @@ import java.util.List;
 public class SecretaryServlet extends HttpServlet {
     private UserDAO userDAO = new UserDAOImpl();
     private ForumDAO forumDAO = new ForumDAOImpl();
+    private NotiDAO notiDAO = new NotiDAOImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         queryUserInfo(request, response);
@@ -24,7 +23,7 @@ public class SecretaryServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        releaseNotices(request, response);
     }
 
     public void queryUserInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,5 +43,16 @@ public class SecretaryServlet extends HttpServlet {
 
         request.setAttribute("users", users);
         request.getRequestDispatcher("/secretaryPage/userInfoPage.jsp").forward(request, response);
+    }
+
+    public void releaseNotices(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("ghgjlkjhg");
+        String note = request.getParameter("notification");
+        String thisforum = "分论坛1";
+        Notification notification = new Notification();
+        notification.setSubForum(thisforum);
+        notification.setMessage(note);
+        notiDAO.add(notification);
+        request.getRequestDispatcher("/secretaryPage/releaseNotesPage.jsp").forward(request, response);
     }
 }
