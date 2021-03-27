@@ -196,9 +196,14 @@
             text-align: center;
             border-left: 1px solid #e1e1e1;
         }
-        #queryForm{
-            width: 100px;
-            height: 30px;
+        #mem_submit{
+            float: right;
+            position: relative;
+            right: 200px;
+            top: 70px;
+            width: 200px;
+            height: 45px;
+            text-align: center;
         }
     </style>
 </head>
@@ -220,8 +225,16 @@
         }
     </script>
 </div>
+
+<form action="<%=path%>/SecretaryServlet" method="get" id="queryForm">
+    <input id="mem_submit" type="submit" value="查询本论坛所有人员信息">
+</form>
+
 <div id="section">
-    <p id="tabletitle">人员信息列表</p>
+    <div id="information">
+        <p id="tabletitle">人员信息列表</p>
+    </div>
+
     <div id="conferencelist">
 
 
@@ -241,10 +254,6 @@
 
     </div>
 </div>
-
-<form action="<%=path%>/SecretaryServlet" method="get" id="queryForm">
-    <input type="submit" value="查询本论坛所有人员信息">
-</form>
 
 
 </body>
