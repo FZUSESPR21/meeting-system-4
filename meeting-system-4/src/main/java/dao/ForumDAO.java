@@ -11,6 +11,7 @@ public interface ForumDAO {
     void update(Forum forum);
     void delete(int id) ;
     User get(int id);
+    List<Forum> list();
     List<Forum> list(String Userid);
     List<Forum> list(int start, int count) ;
     boolean isExist(String name) ;
