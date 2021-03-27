@@ -25,20 +25,6 @@ public class SubChairmanDAOImpl implements SubChairmanDAO{
         return total;
     }
 
-    public String getSubForum(String id) {
-        String subForum = "";
-        try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
-            String sql = "select subforum from subchairman where id='" + id + "'";
-            ResultSet rs = s.executeQuery(sql);
-            while (rs.next()) {
-                subForum = rs.getString("subforum");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return subForum;
-    }
-
     @Override
     public void delete(int id) {
 
@@ -73,5 +59,20 @@ public class SubChairmanDAOImpl implements SubChairmanDAO{
     @Override
     public SubChairman get(String name, String password) {
         return null;
+    }
+
+    @Override
+    public String getPassword(String id){
+        String password = new String();
+        try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
+            String sql = "select * from subchairman where id = '"+id+"'";
+            ResultSet rs = s.executeQuery(sql);
+            while (rs.next()) {
+                password =rs.getString("password");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return password;
     }
 }
