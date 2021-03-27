@@ -1,5 +1,7 @@
 package com.example.CommonUser;
 
+import dao.ChairmanDAO;
+import dao.ChairmanDAOImpl;
 import dao.ForumDAO;
 import dao.ForumDAOImpl;
 
@@ -9,14 +11,14 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ForumServlet", value = "/ForumServlet")
-public class ForumServlet extends HttpServlet {
+@WebServlet(name = "ChairmanServlet", value = "/ChairmanServlet")
+public class ChairmanServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-         ForumDAO forumDAO = new ForumDAOImpl();
-         forumDAO.list("10001");
+        ChairmanDAO chairmanDAO=new ChairmanDAOImpl();
+        int num=chairmanDAO.getTotal();
         PrintWriter out= response.getWriter();
-        out.println(forumDAO.list("10001").get(0).getTime());
+        out.println(num);
     }
 
     @Override
