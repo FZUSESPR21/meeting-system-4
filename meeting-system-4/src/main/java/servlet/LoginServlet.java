@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 
         if (type.equals("secretary")) {
             if (password.equals(user.getPassword(id))) {
-                request.getRequestDispatcher("/secretaryPage/1.jsp").forward(request, response);
+                request.getRequestDispatcher("/secretaryPage/userInfoPage.jsp?secretaryId="+id).forward(request, response);
             } else {
                 request.setAttribute("id", id);
                 request.setAttribute("error", "输入的用户名或密码错误！请重新输入");
@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 
         if (type.equals("subchairman")) {
             if (password.equals(user.getPassword(id))) {
-                request.getRequestDispatcher("/subchairmanPage/1.jsp").forward(request, response);
+                request.getRequestDispatcher("/subchairmanPage/peopleNumPage.jsp?subchairmanId="+id).forward(request, response);
             } else {
                 request.setAttribute("id", id);
                 request.setAttribute("error", "输入的用户名或密码错误！请重新输入");
