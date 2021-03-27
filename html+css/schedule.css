@@ -94,3 +94,35 @@ h1 {
     background-color: #e0e0e0;
     margin-left: 40px;
 }
+#line{
+    height: 0px;
+    width: 80.8%;
+    border: black 1px solid;
+    float: left;
+}
+h2{
+    float: left;
+    overflow: hidden;
+    margin-left: 60px;
+    width: 500px;
+}
+#schedule{
+    width: 60%;
+    height: 600px;
+    margin: 10px;
+    margin-left: 60px;
+    border: #272a38 4px solid;
+    box-shadow: 5px 5px #353b5e;
+    border-radius: 30px;
+    float: left;
+}
+.li{
+    list-style-type: none;
+    border: #353b5e 1px solid;
+    border-radius: 5px;
+    margin-left: 50px;
+    width: 80%;
+    height: 50px;
+    margin-top: 30px;
+    line-height: 50px;
+}
