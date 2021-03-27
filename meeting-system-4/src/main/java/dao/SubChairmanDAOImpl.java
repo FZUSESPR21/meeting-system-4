@@ -1,6 +1,7 @@
 package dao;
 
-import pojo.Chairman;
+import pojo.SubChairman;
+import pojo.User;
 import util.DBUtil;
 
 import java.sql.Connection;
@@ -8,12 +9,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ChairmanDAOImpl implements ChairmanDAO{
+public class SubChairmanDAOImpl implements SubChairmanDAO{
     @Override
     public int getTotal() {
         int total = 0;
         try (Connection c = DBUtil.getConnection(); Statement s = c.createStatement()) {
-            String sql = "select count(*) from chairman";
+            String sql = "select count(*) from subchairman";
             ResultSet rs = s.executeQuery(sql);
             while (rs.next()) {
                 total = rs.getInt(1);
@@ -24,13 +25,18 @@ public class ChairmanDAOImpl implements ChairmanDAO{
         return total;
     }
 
+
+
+
+
+
     @Override
     public void delete(int id) {
 
     }
 
     @Override
-    public Chairman get(int id) {
+    public SubChairman get(int id) {
         return null;
     }
 
@@ -51,12 +57,12 @@ public class ChairmanDAOImpl implements ChairmanDAO{
     }
 
     @Override
-    public Chairman get(String name) {
+    public SubChairman get(String name) {
         return null;
     }
 
     @Override
-    public Chairman get(String name, String password) {
+    public SubChairman get(String name, String password) {
         return null;
     }
 }

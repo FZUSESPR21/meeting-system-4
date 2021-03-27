@@ -4,10 +4,7 @@ import pojo.Forum;
 import pojo.User;
 import util.DBUtil;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO{
@@ -18,8 +15,17 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public void add(User user) {
+    public void add(User user, String password) {
+        String sql = "insert into user values(? ,? ,?)";
+        try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(0, user.getId());
+            ps.setString(1, password);
+            ps.setString(2, user.getName());
+            ps.execute();
+        } catch (SQLException e) {
 
+            e.printStackTrace();
+        }
     }
 
     @Override
