@@ -208,7 +208,7 @@
     </div>
 
     <div id="menu3">
-        <button id="list3" onclick="jumptoNote()">参会人数</button><br>
+        <a id="list3" href="<%=path%>/subchairmanPage/peopleNumPage.jsp">参会人数</a><br>
     </div>
     <div id="menu2">
         <button id="list2">发布通知</button><br>

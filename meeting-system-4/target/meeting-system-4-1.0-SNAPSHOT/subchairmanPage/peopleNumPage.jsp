@@ -194,13 +194,8 @@
         <button id="list3" >参会人数</button><br>
     </div>
     <div id="menu2">
-        <button id="list2" onclick="jumptorelese()">发布通知</button><br>
+        <a id="list2" href="<%=path%>/subchairmanPage/releaseNotesPage.jsp">发布通知</a><br>
     </div>
-    <script>
-        function jumptorelese(){
-            window.open("releaseNotesPage.jsp",'_self','',true)
-        }
-    </script>
 </div>
 <div id="section">
     <div id="h2">

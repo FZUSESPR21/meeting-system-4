@@ -184,14 +184,8 @@
         <p>管理列表</p>
     </div>
     <div id="menu1">
-
-        <button id="list1" onclick="jump2()">参会者信息</button><br>
+        <a id="list1" href="<%=path%>/secretaryPage/userInfoPage.jsp">参会者信息</a><br>
     </div>
-    <script>
-        function jump2(){
-            window.open("userInfoPage.jsp",'_self','',true)
-        }
-    </script>
     <div id="menu2">
         <button id="list2">发布通知</button><br>
     </div>

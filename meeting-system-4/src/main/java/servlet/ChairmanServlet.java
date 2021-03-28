@@ -1,4 +1,4 @@
-package com.example.CommonUser;
+package servlet;
 
 import dao.ChairmanDAO;
 import dao.ChairmanDAOImpl;

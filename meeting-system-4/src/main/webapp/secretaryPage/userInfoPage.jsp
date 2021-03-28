@@ -217,13 +217,8 @@
         <button id="list1">参会者信息</button><br>
     </div>
     <div id="menu2">
-        <a id="list2" href="secretaryPage/releaseNotesPage.jsp">发布通知</a><br>
+        <a id="list2" href="<%=path%>/secretaryPage/releaseNotesPage.jsp">发布通知</a><br>
     </div>
-    <script>
-        function jump1(){
-            window.open("releaseNotesPage.jsp",'_self','',true)
-        }
-    </script>
 </div>
 
 <form action="<%=path%>/SecretaryServlet" method="get" id="queryForm">
@@ -236,7 +231,6 @@
     </div>
 
     <div id="conferencelist">
-
 
         <c:forEach items="${requestScope.users}" var="u" varStatus="vs">
             <div class="username">${u.name}</div>

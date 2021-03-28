@@ -7,9 +7,7 @@ import pojo.Secretary;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
@@ -42,15 +40,8 @@ public class LoginServlet extends HttpServlet {
 
         if (type.equals("secretary")) {
             if (password.equals(secretary.getPassword(id))) {
-                System.out.println("success");
-                System.out.println(type);
-                request.getRequestDispatcher("/secretaryPage/userInfoPage.jsp?secretaryId="+id).forward(request, response);
+                request.getRequestDispatcher("SecretaryServlet?secretaryId="+id).forward(request, response);
             } else {
-                System.out.println("fail");
-                System.out.println(password);
-                System.out.println(secretary.getPassword(id));
-                System.out.println(id);
-
                 request.setAttribute("id", id);
                 request.setAttribute("error", "输入的用户名或密码错误！请重新输入");
                 request.getRequestDispatcher("/loginPage/login.jsp").forward(request, response);
