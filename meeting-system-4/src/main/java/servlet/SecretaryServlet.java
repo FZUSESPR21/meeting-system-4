@@ -28,7 +28,7 @@ public class SecretaryServlet extends HttpServlet {
     }
 
     public void queryUserInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("secretaryId");
+        String id = request.getParameter("sid");
         String thisforum = secretaryDAO.getSubForum(id);
         ArrayList<User> users = new ArrayList<>();
         ArrayList<String> userIdList = (ArrayList<String>) userDAO.userIdList(thisforum);
@@ -56,6 +56,7 @@ public class SecretaryServlet extends HttpServlet {
         notification.setSubForum(thisforum);
         notification.setMessage(note);
         notiDAO.add(notification);
+        System.out.println(id);
         request.getRequestDispatcher("/secretaryPage/releaseNotesPage.jsp").forward(request, response);
     }
 }

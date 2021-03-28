@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 
         if (type.equals("secretary")) {
             if (password.equals(secretary.getPassword(id))) {
-                request.getRequestDispatcher("SecretaryServlet?secretaryId="+id).forward(request, response);
+                request.getRequestDispatcher("/secretaryPage/userInfoPage.jsp?secretaryId="+id).forward(request, response);
             } else {
                 request.setAttribute("id", id);
                 request.setAttribute("error", "输入的用户名或密码错误！请重新输入");

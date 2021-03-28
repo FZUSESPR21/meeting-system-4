@@ -206,6 +206,11 @@
             text-align: center;
         }
     </style>
+    <script>
+        function show(id) {
+            window.location.href = "<%=path%>/SecretaryServlet?sid="+id;
+        }
+    </script>
 </head>
 <body>
 <div id="nav">
@@ -217,13 +222,12 @@
         <button id="list1">参会者信息</button><br>
     </div>
     <div id="menu2">
-        <a id="list2" href="<%=path%>/secretaryPage/releaseNotesPage.jsp">发布通知</a><br>
+        <a id="list2" href="<%=path%>/secretaryPage/releaseNotesPage.jsp?sid=${param.secretaryId}">发布通知</a><br>
     </div>
 </div>
 
-<form action="<%=path%>/SecretaryServlet" method="get" id="queryForm">
-    <input id="mem_submit" type="submit" value="查询本论坛所有人员信息">
-</form>
+
+<button type="button" onclick="show('${param.secretaryId}')">查询</button>
 
 <div id="section">
     <div id="information">
